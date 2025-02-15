@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { ChevronRight, Sprout, X, Menu } from 'lucide-react';
 import { ShimmerButton } from './magicui/shimmer-button';
 import { useTranslation } from 'react-i18next';
-import { i } from 'framer-motion/client';
+
 
 function NavBar() {
   const {t,i18n} = useTranslation();
@@ -14,6 +14,12 @@ function NavBar() {
     "Crop Yield Prediction",
     "Weather Prediction",
     "Disease Detection",
+  ];
+  const menuItems = [
+    { name: "Features", path: "/#features" },
+    { name: "About", path: "/#about" },
+    { name: "Marketplace", path: "/#marketplace" },
+    { name: "Testimonials", path: "/#testimonials" }
   ];
   const changeLanguage = (e) =>{
     i18n.changeLanguage(e.target.value);
@@ -54,15 +60,15 @@ function NavBar() {
 
               {/* Desktop Menu */}
               <div className='hidden md:flex items-center space-x-8'>
-                {['Features', 'About', 'Marketplace', 'Testimonials'].map((item) => (
+                {menuItems.map((item) => (
                   <NavLink
-                    key={item}
-                    to={`/${item}`}
+                    key={item.name}
+                    to={item.path}
                     className={({ isActive }) =>
                       isActive ? 'text-green-600 font-semibold' : 'hover:text-green-600 text-gray-600 transition-colors'
                     }
                   >
-                    {item}
+                    {item.name}
                   </NavLink>
                 ))}
                 
@@ -108,15 +114,15 @@ function NavBar() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className='md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3'>
-              {['Features', 'About', 'Marketplace', 'Testimonials'].map((item) => (
+              {menuItems.map((item) => (
                 <NavLink
-                  key={item}
-                  to={`/${item}`}
+                  key={item.name}
+                  to={item.path}
                   className={({ isActive }) =>
                     isActive ? 'block text-green-600 font-semibold' : 'block hover:text-green-600 text-gray-600 transition-colors'
                   }
                 >
-                  {item}
+                  {item.name}
                 </NavLink>
               ))}
               

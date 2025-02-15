@@ -32,7 +32,7 @@ const features = [
 
 const SquishyCard = () => {
   return (
-    <section className="bg-gray-50 px-6 py-16">
+    <section id="features" className="bg-gray-50 px-6 py-16">
       {/* Title & Description */}
       <div className="text-center max-w-7xl">
         <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
