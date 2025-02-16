@@ -17,7 +17,7 @@ const Card = ({ name, feedback, location }) => (
 function Home() {
     const testimonials = [
         {
-          name: "Sara kumar",
+          Name: "Sara kumar",
           feedback: "This platform transformed my farming. AI insights boosted my crop yield by 30%!",
           location: "Bihar, India",
         },
