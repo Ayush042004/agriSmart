@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Sprout, X, Menu } from 'lucide-react';
 import { ShimmerButton } from './magicui/shimmer-button';
 import { useTranslation } from 'react-i18next';
 
 
-function NavBar() {
+function Header() {
   const {t,i18n} = useTranslation();
   const [isAssistDropdownOpen, setIsAssistDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const assistFeatures = [
     "Crop Yield Prediction",
@@ -16,11 +17,22 @@ function NavBar() {
     "Disease Detection",
   ];
   const menuItems = [
-    { name: "Features", path: "/#features" },
-    { name: "About", path: "/#about" },
-    { name: "Marketplace", path: "/#marketplace" },
-    { name: "Testimonials", path: "/#testimonials" }
+    { name: "Features", path: "#features" },
+    { name: "About", path: "/about" },
+    { name: "Marketplace", path: "/marketplace" },
+    { name: "Testimonials", path: "#testimonials" }
   ];
+
+  const handleNavigation = (sectionId) => {
+    navigate('/');
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if(section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    },100);
+  }
+
   const changeLanguage = (e) =>{
     i18n.changeLanguage(e.target.value);
   }
@@ -61,15 +73,13 @@ function NavBar() {
               {/* Desktop Menu */}
               <div className='hidden md:flex items-center space-x-8'>
                 {menuItems.map((item) => (
-                  <NavLink
+                  <button
                     key={item.name}
-                    to={item.path}
-                    className={({ isActive }) =>
-                      isActive ? 'text-green-600 font-semibold' : 'hover:text-green-600 text-gray-600 transition-colors'
-                    }
+                    onClick={() => handleNavigation(item.path)}
+                    className='text-gray-600 hover:text-green-600 transition-colors'
                   >
                     {item.name}
-                  </NavLink>
+                  </button>
                 ))}
                 
                 {/* Assist Dropdown */}
@@ -115,15 +125,16 @@ function NavBar() {
           {isMenuOpen && (
             <div className='md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3'>
               {menuItems.map((item) => (
-                <NavLink
+                <button
                   key={item.name}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    isActive ? 'block text-green-600 font-semibold' : 'block hover:text-green-600 text-gray-600 transition-colors'
-                  }
+                  onClick={() => {
+                    handleNavigation(item.path);
+                    setIsMenuOpen(false);
+                  }}
+                  className='text-gray-600 hover:text-green-600 transition-colors'
                 >
                   {item.name}
-                </NavLink>
+                </button>
               ))}
               
               {/* Mobile Assist Dropdown */}
@@ -158,4 +169,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Header;
