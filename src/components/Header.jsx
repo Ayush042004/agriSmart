@@ -75,7 +75,7 @@ function Header() {
                 {menuItems.map((item) => (
                   <button
                     key={item.name}
-                    onClick={() => handleNavigation(item.path)}
+                    onClick={() => navigate(item.path)}
                     className='text-gray-600 hover:text-green-600 transition-colors'
                   >
                     {item.name}
