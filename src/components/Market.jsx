@@ -1,3 +1,4 @@
+import { Search } from 'lucide-react'
 import React from 'react'
 
 
@@ -24,53 +25,59 @@ const topProducts = [
     {
         id: 3,
         name: "rustBasket Gardening Hand Tools Set - 5 Pcs (Cultivator, Big and Small Trowel, Weeder, Fork)",
-        category: "Plants",
+        category: "Tools",
         price: 349,
         rating: 4.3,
-        image:"https://m.media-amazon.com/images/I/71cZQ9t3oNL._SL1500_.jpg",
+        image:"https://m.media-amazon.com/images/I/61mCS9kj2uS.SX679.jpg",
         reviews: 200
     },
     {
         id: 4,
-        name: "Ugaoo Good Luck Jade Plant with Self Watering Pot",
-        category: "Plants",
+        name: "Health 360 - Spray Pest Control for Plants - 500 ml",
+        category: "Pesticides",
         price: 299,
         rating: 4.2,
-        image:"https://m.media-amazon.com/images/I/71cZQ9t3oNL._SL1500_.jpg",
+        image:"https://m.media-amazon.com/images/I/715zO-EgtsL.SX679.jpg",
         reviews: 150
     },
     {
         id: 5,
-        name: "Ugaoo Areca Palm Plant with Self Watering Pot",
-        category: "Plants",
+        name: "HARIVAR MART Cordless Grass Trimme-r, Electric Weed Eater 3-in-1 ",
+        category: "Machinery",
         price: 349,
         rating: 4.3,
-        image:"https://m.media-amazon.com/images/I/71cZQ9t3oNL._SL1500_.jpg",
+        image:"https://m.media-amazon.com/images/I/613ahSSo9rL.SX679.jpg",
         reviews: 200
     },
-    {
-        id: 6,
-        name: "Ugaoo Good Luck Jade Plant with Self Watering Pot",
-        category: "Plants",
-        price: 299,
-        rating: 4.2,
-        image:"https://m.media-amazon.com/images/I/71cZQ9t3oNL._SL1500_.jpg",
-        reviews: 150
-    },
-    {
-        id: 7,
-        name: "Ugaoo Areca Palm Plant with Self Watering Pot",
-        category: "Plants",
-        price: 349,
-        rating: 4.3,
-        image:"https://m.media-amazon.com/images/I/71cZQ9t3oNL._SL1500_.jpg",
-        reviews: 200
-    },
+    
 ]
 
 function Market() {
   return (
-    <div>Market</div>
+    <div className='min-h-screen bg-gray-50'>
+        <div className='bg-gray-100 shadow-sm'>
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4'>
+                <div className='flex items-center justify-between'>
+                    <div className='flex-1 max-w-2xl'>
+                    <div className='relative '>
+                        <input
+                        type="text"
+                        placeholder="Search products"
+                        className='w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-3 focus:ring-green-600 focus:border-transparent'
+                        />
+                        <button>
+                        <Search className='absolute left-[640px] h-5 w-5 top-3 text-center'/>
+                        </button>
+
+                    </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
   )
 }
 
