@@ -9,10 +9,8 @@ import './i18n.js';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
-      <Route path="" element={<Home/>}/>
-      <Route path="about" element={<About/>}/>
-      
-
+      <Route path="/" element={<Home/>}/>
+      <Route path="/about" element={<About/>}/>
     </Route>
   ))
 
