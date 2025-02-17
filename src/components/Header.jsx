@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../store/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Sprout, X, Menu } from 'lucide-react';
 import { ShimmerButton } from './magicui/shimmer-button';
@@ -11,27 +13,38 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const{isAuthenticated, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const assistFeatures = [
     "Crop Yield Prediction",
     "Weather Prediction",
     "Disease Detection",
   ];
   const menuItems = [
-    { name: "Features", path: "#features" },
+    { name: "Features", path: "features" },
     { name: "About", path: "/about" },
     { name: "Marketplace", path: "/marketplace" },
-    { name: "Testimonials", path: "#testimonials" }
+    { name: "Testimonials", path: "testimonials" }
   ];
 
-  const handleNavigation = (sectionId) => {
-    navigate('/');
-    setTimeout(() => {
-      const section = document.getElementById(sectionId);
-      if(section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    },100);
-  }
+  const handleNavigation = (divId) => {
+    if (window.location.pathname !== '/') {
+      navigate('/'); // Navigate to home page first
+      setTimeout(() => {
+        scrollToSection(divId);
+      }, 100); // Delay to allow page transition
+    } else {
+      scrollToSection(divId);
+    }
+  };
+  
+  const scrollToSection = (divId) => {
+    const section = document.getElementById(divId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const changeLanguage = (e) =>{
     i18n.changeLanguage(e.target.value);
@@ -75,7 +88,7 @@ function Header() {
                 {menuItems.map((item) => (
                   <button
                     key={item.name}
-                    onClick={() => navigate(item.path)}
+                    onClick={() => handleNavigation(item.path)}
                     className='text-gray-600 hover:text-green-600 transition-colors'
                   >
                     {item.name}
@@ -108,7 +121,25 @@ function Header() {
                     </div>
                   )}
                 </div>
-                <ShimmerButton> Get Started </ShimmerButton>
+
+
+                {isAuthenticated ? (
+    <div className="flex items-center space-x-4">
+      <span className="text-gray-600">{user?.name}</span>
+      <button
+        onClick={() => dispatch(logout())}
+        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+      >
+        Logout
+      </button>
+    </div>
+  ) : (
+    <ShimmerButton onClick={() => navigate('/login')}>
+      Get Started
+    </ShimmerButton>
+  )}
+
+
               </div>
 
               {/* Mobile Menu Button */}
@@ -160,8 +191,24 @@ function Header() {
                   </div>
                 )}
               </div>
-              <ShimmerButton> Get Started </ShimmerButton>
+
+              {isAuthenticated ? (
+      <div className="flex items-center space-x-4">
+        <span className="text-gray-600">{user?.name}</span>
+        <button
+          onClick={() => dispatch(logout())}
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
+    ) : (
+      <ShimmerButton onClick={() => navigate('/login')}>
+        Get Started
+      </ShimmerButton>
+    )}
             </div>
+
           )}
         </nav>
       </div>
