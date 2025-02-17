@@ -22,18 +22,18 @@ function Header() {
     "Disease Detection",
   ];
   const menuItems = [
-    { name: "Features", path: "features" },
+    
     { name: "About", path: "/about" },
     { name: "Marketplace", path: "/marketplace" },
-    { name: "Testimonials", path: "testimonials" }
+    
   ];
 
   const handleNavigation = (divId) => {
-    if (window.location.pathname !== '/') {
-      navigate('/'); // Navigate to home page first
+    if (window.location.pathname !== "/") {
+      navigate("/");
       setTimeout(() => {
         scrollToSection(divId);
-      }, 100); // Delay to allow page transition
+      }, 100); // Delay ensures the home page loads first
     } else {
       scrollToSection(divId);
     }
@@ -42,10 +42,11 @@ function Header() {
   const scrollToSection = (divId) => {
     const section = document.getElementById(divId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  
   const changeLanguage = (e) =>{
     i18n.changeLanguage(e.target.value);
   }
@@ -85,10 +86,24 @@ function Header() {
 
               {/* Desktop Menu */}
               <div className='hidden md:flex items-center space-x-8'>
+
+  <button
+    onClick={() => handleNavigation("features")}
+    className='text-gray-600 hover:text-green-600 transition-colors'
+  >
+    Features
+  </button>
+
+  <button
+    onClick={() => handleNavigation("testimonials")}
+    className='text-gray-600 hover:text-green-600 transition-colors'
+  >
+    Testimonials
+  </button>
                 {menuItems.map((item) => (
                   <button
                     key={item.name}
-                    onClick={() => handleNavigation(item.path)}
+                    onClick={() => navigate(item.path)}
                     className='text-gray-600 hover:text-green-600 transition-colors'
                   >
                     {item.name}
@@ -215,5 +230,4 @@ function Header() {
     </>
   );
 }
-
-export default Header;
+export default Header
