@@ -14,7 +14,11 @@ const resources = {
       "get_started": "Get Started",
       "learn_more": "Learn More",
       "trusted_farmers": "Trusted by Farmers Across India",
-      "empower_farmers": "Empowering farmers with AI-driven solutions for better crop management, market access, and financial security."
+      "empower_farmers": "Empowering farmers with AI-driven solutions for better crop management, market access, and financial security.",
+      "testimonial_1": "This platform transformed my farming. AI insights boosted my crop yield by 30%!",
+      "testimonial_2": "Weather predictions are spot on. It helped me avoid major losses this season.",
+      "testimonial_3": "I love the smart advisory. It provides the best recommendations for my crops.",
+      "testimonial_4": "Market access is amazing! I sold my produce at great prices directly to buyers."
     }
   },
   hi: {
@@ -28,37 +32,16 @@ const resources = {
       "get_started": "शुरू करें",
       "learn_more": "और अधिक जानें",
       "trusted_farmers": "भारत भर के किसानों द्वारा विश्वसनीय",
-      "empower_farmers": "किसानों को बेहतर फसल प्रबंधन, बाजार पहुंच और वित्तीय सुरक्षा के लिए एआई-संचालित समाधानों के साथ सशक्त बनाना।"
+      "empower_farmers": "किसानों को बेहतर फसल प्रबंधन, बाजार पहुंच और वित्तीय सुरक्षा के लिए एआई-संचालित समाधानों के साथ सशक्त बनाना।",
+      "testimonial_1": "इस प्लेटफार्म ने मेरी खेती को बदल दिया। एआई अंतर्दृष्टि ने मेरी फसल की उपज को 30% बढ़ाया!",
+      "testimonial_2": "मौसम पूर्वानुमान सटीक हैं। इसने मुझे इस सीजन में बड़े नुकसान से बचाया।",
+      "testimonial_3": "मुझे स्मार्ट सलाह बहुत पसंद है। यह मेरी फसलों के लिए सबसे अच्छी सिफारिशें प्रदान करता है।",
+      "testimonial_4": "बाजार पहुंच अद्भुत है! मैंने अपनी उपज को सीधे खरीदारों को बेचा और अच्छे दाम प्राप्त किए।"
+      
     }
   },
-  es: {
-    translation: {
-      "help_center": "Centro de ayuda",
-      "features": "Características",
-      "about": "Acerca de",
-      "marketplace": "Mercado",
-      "testimonials": "Testimonios",
-      "assist": "Asistencia",
-      "get_started": "Comenzar",
-      "learn_more": "Aprender más",
-      "trusted_farmers": "Confiado por agricultores en toda la India",
-      "empower_farmers": "Empoderando a los agricultores con soluciones impulsadas por IA para mejorar la gestión de cultivos, el acceso al mercado y la seguridad financiera."
-    }
-  },
-  fr: {
-    translation: {
-      "help_center": "Centre d'aide",
-      "features": "Fonctionnalités",
-      "about": "À propos",
-      "marketplace": "Marché",
-      "testimonials": "Témoignages",
-      "assist": "Assistance",
-      "get_started": "Commencer",
-      "learn_more": "En savoir plus",
-      "trusted_farmers": "Fiable par les agriculteurs à travers l'Inde",
-      "empower_farmers": "Autonomiser les agriculteurs avec des solutions basées sur l'IA pour une meilleure gestion des cultures, un accès au marché et une sécurité financière."
-    }
-  }
+  
+  
 };
 
 i18n

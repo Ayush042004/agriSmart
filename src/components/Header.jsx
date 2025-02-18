@@ -5,21 +5,24 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Sprout, X, Menu } from 'lucide-react';
 import { ShimmerButton } from './magicui/shimmer-button';
 import { useTranslation } from 'react-i18next';
+import FileUpload from "./DiseaseDetect.jsx";
+
 
 
 function Header() {
   const {t,i18n} = useTranslation();
   const [isAssistDropdownOpen, setIsAssistDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFileUploadModalOpen, setIsFileUploadModalOpen] = useState(false);
+  const [isWheatherModalOpen, setIsWheatherModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const{isAuthenticated, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
+ 
   const assistFeatures = [
-    "Crop Yield Prediction",
-    "Weather Prediction",
-    "Disease Detection",
+
+    { name: "Disease Detection", action: () => setIsFileUploadModalOpen(true) },
   ];
   const menuItems = [
     
@@ -33,7 +36,7 @@ function Header() {
       navigate("/");
       setTimeout(() => {
         scrollToSection(divId);
-      }, 100); // Delay ensures the home page loads first
+      }, 100); 
     } else {
       scrollToSection(divId);
     }
@@ -81,7 +84,7 @@ function Header() {
               {/* Logo */}
               <div className='flex items-center'>
                 <Sprout className='h-8 w-8 text-green-600' />
-                <Link to="/" className='ml-2 text-xl poppins-bold text-gray-800'> AgriSmart </Link>
+                <Link to="/" className='ml-2 text-xl poppins-bold text-gray-800'> CROPX </Link>
               </div>
 
               {/* Desktop Menu */}
@@ -91,14 +94,14 @@ function Header() {
     onClick={() => handleNavigation("features")}
     className='text-gray-600 hover:text-green-600 transition-colors'
   >
-    Features
+    {t("features")}
   </button>
 
   <button
     onClick={() => handleNavigation("testimonials")}
     className='text-gray-600 hover:text-green-600 transition-colors'
   >
-    Testimonials
+    {t("testimonials")}
   </button>
                 {menuItems.map((item) => (
                   <button
@@ -117,21 +120,29 @@ function Header() {
                     onClick={() => setIsAssistDropdownOpen(!isAssistDropdownOpen)}
                     onBlur={() => setTimeout(() => setIsAssistDropdownOpen(false), 200)}
                   >
-                    Assist
+                    {t("assist")}
                     <ChevronRight className={`ml-1 h-4 w-4 transform transition-transform ${isAssistDropdownOpen ? 'rotate-90' : ''}`} />
                   </button>
                   {isAssistDropdownOpen && (
                     <div className="absolute z-50 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                       <div className="py-1">
-                        {assistFeatures.map((feature, index) => (
-                          <Link
-                            key={index}
-                            to="/"
+                      <Link
+                          to={"/intelligence"}>
+                          <button
+                            key={"123"}
+                            
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                           >
-                            {feature}
+                            "Weather Prediction"
+                          </button>
                           </Link>
-                        ))}
+                          <button
+                            key={"221"}
+                            onClick={()=>setIsFileUploadModalOpen(true)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                          >
+                            "DiseaseDetect"
+                          </button>
                       </div>
                     </div>
                   )}
@@ -149,8 +160,8 @@ function Header() {
       </button>
     </div>
   ) : (
-    <ShimmerButton onClick={() => navigate('/login')}>
-      Get Started
+    <ShimmerButton>
+      {t("get_started")}
     </ShimmerButton>
   )}
 
@@ -200,7 +211,7 @@ function Header() {
                         to="/"
                         className="block pl-4 py-2 text-sm text-gray-600 hover:text-green-600"
                       >
-                        {feature}
+                        {feature.name}
                       </Link>
                     ))}
                   </div>
@@ -227,6 +238,31 @@ function Header() {
           )}
         </nav>
       </div>
+       {/* Modal for Disease Detection */}
+       {isFileUploadModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+          <button onClick={() => setIsFileUploadModalOpen(true)} className="absolute top-2 right-2">
+              <X className="h-6 w-6 text-gray-600 hover:text-red-600" />
+            </button>
+            <FileUpload />
+          </div>
+        </div>
+      )}
+
+{/* Modal for Weather */}
+{isWheatherModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+            <button onClick={() => setIsWheatherModalOpen(false)} className="absolute top-2 right-2">
+              <X className="h-6 w-6 text-gray-600 hover:text-red-600" />
+            </button>
+            <Wheather />
+          </div>
+        </div>
+      )}
+
+      
     </>
   );
 }

@@ -1,5 +1,73 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { Sprout, Target } from 'lucide-react'
 import React from 'react'
+
+
+
+
+
 
 const team = [
   {
@@ -28,8 +96,14 @@ const team = [
   }
 ]
 
+;
+
+
+
 function About() {
+
   return (
+   
     <div className='bg-white'>
 
 
@@ -47,6 +121,7 @@ function About() {
       </div>
 
       {/* Mission and vision */}
+
       <div className='py-16'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-10 '>
@@ -80,6 +155,7 @@ function About() {
       </div>
 
 {/* Why Choose Us */}
+
 <div className='py-16 bg-gray-100'>
   <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
     <h2 className='text-3xl poppins-bold text-center text-gray-900'>Why Choose AgriSmart?</h2>
@@ -105,6 +181,7 @@ function About() {
 </div>
   
   {/* Team Section */}
+  
   <div className='bg-gray-50 py-16'>
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
       <h2 className='text-3xl poppins-bold text-center text-gray-900 mb-12 '>Our Leadership Team</h2>
@@ -117,6 +194,7 @@ function About() {
             className='w-20 h-20 rounded-full mx-auto mb-4 object-cover '/>
             <h3 className='text-xl poppins-bold text-gray-900 text-center'>{member.name}</h3>
             <p className='text-green-600 text-center mb-4 '>{member.role}</p>
+            <p className='text-gray-500 text-center '>{member.desc}</p>
             
             
           </div>
@@ -127,21 +205,23 @@ function About() {
     </div>
 
   </div>
+
 {/* FAQ Section */}
-  <div className="space-y-4">
+
+<div className="space-y-4">
   <details
-    className="group border-s-4 border-green-500 bg-gray-50 p-5 [&_summary::-webkit-details-marker]:hidden"
+    className="group border-l-4 border-green-600 bg-white p-5 shadow-md rounded-lg transition-all duration-300 ease-in-out [&_summary::-webkit-details-marker]:hidden"
     open
   >
-    <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-      <h2 className="text-sm font-medium text-gray-900">
-        Lorem ipsum dolor sit amet consectetur adipisicing?
+    <summary className="flex cursor-pointer items-center justify-between gap-2">
+      <h2 className="text-base font-semibold text-gray-900">
+        What is AgriSmart?
       </h2>
 
-      <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+      <span className="shrink-0 rounded-full bg-green-100 p-2 text-green-700 sm:p-3 transition-all duration-300 group-open:rotate-45">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+          className="size-5 shrink-0"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -154,25 +234,25 @@ function About() {
       </span>
     </summary>
 
-    <p className="mt-4 leading-relaxed text-gray-700">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
-      recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
-      consequuntur distinctio corporis earum similique!
+    <p className="mt-3 text-gray-700 leading-relaxed">
+      AgriSmart is an AI-powered platform designed to assist farmers with crop
+      yield prediction, weather forecasting, and disease detection to improve
+      agricultural efficiency.
     </p>
   </details>
 
   <details
-    className="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+    className="group border-l-4 border-green-600 bg-white p-5 shadow-md rounded-lg transition-all duration-300 ease-in-out [&_summary::-webkit-details-marker]:hidden"
   >
-    <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-      <h2 className="text-lg font-medium text-gray-900">
-        Lorem ipsum dolor sit amet consectetur adipisicing?
+    <summary className="flex cursor-pointer items-center justify-between gap-2">
+      <h2 className="text-base font-semibold text-gray-900">
+        How does the AI-based disease detection work?
       </h2>
 
-      <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
+      <span className="shrink-0 rounded-full bg-green-100 p-2 text-green-700 sm:p-3 transition-all duration-300 group-open:rotate-45">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="size-5 shrink-0 transition duration-300 group-open:-rotate-45"
+          className="size-5 shrink-0"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -185,13 +265,14 @@ function About() {
       </span>
     </summary>
 
-    <p className="mt-4 leading-relaxed text-gray-700">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
-      recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
-      consequuntur distinctio corporis earum similique!
+    <p className="mt-3 text-gray-700 leading-relaxed">
+      Our disease detection model analyzes plant images and identifies diseases
+      based on machine learning algorithms trained on vast datasets of affected
+      crops.
     </p>
   </details>
 </div>
+
 
 
 
@@ -202,5 +283,4 @@ function About() {
   )
 }
 
-export default About
-
+export default About 

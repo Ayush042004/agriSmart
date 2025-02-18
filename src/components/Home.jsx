@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import { ArrowUp } from 'lucide-react'
 import FlickeringGrid from './magicui/flickering-grid'
 import AnimatedGradientText from './magicui/animated-gradient-text'
 import LineShadowText from './magicui/line-shadow-text'
 import SquishyCard from './features'
 import Marquee from './magicui/marquee'
+import { useTranslation } from 'react-i18next'
 
 const Card = ({ name, feedback, location }) => (
     <div className="w-80 bg-green-100 rounded-lg shadow-lg p-6 text-center mx-4">
@@ -12,28 +14,65 @@ const Card = ({ name, feedback, location }) => (
       <span className="text-sm text-gray-500">{location}</span>
     </div>
   );
+
+  function ScrollToTop() {
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      const toggleVisibility = () => {
+        if (window.scrollY > 300) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      };
+  
+      window.addEventListener("scroll", toggleVisibility);
+      return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+  
+    return (
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg transition-opacity ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <ArrowUp className="h-6 w-6" />
+      </button>
+    );
+  }
   
 
 function Home() {
+  const {t} = useTranslation();
+
     const testimonials = [
         {
           Name: "Sara kumar",
-          feedback: "This platform transformed my farming. AI insights boosted my crop yield by 30%!",
+          feedback: t('testimonial_1'),
           location: "Bihar, India",
         },
         {
           name: "Nonu Chaudhary ",
-          feedback: "Weather predictions are spot on. It helped me avoid major losses this season.",
+          feedback:  t('testimonial_2'),
           location: "Maharashtra, India",
         },
         {
           name: "Abeer panwar",
-          feedback: "I love the smart advisory. It provides the best recommendations for my crops.",
+          feedback:  t('testimonial_3'),
           location: "UP, India",
         },
         {
           name: "Sankalp kumar ",
-          feedback: "Market access is amazing! I sold my produce at great prices directly to buyers.",
+          feedback: t('testimonial_4'),
           location: "Haryana, India",
         },
         
@@ -111,7 +150,7 @@ function Home() {
    </div>
 
    
-  
+  <ScrollToTop/>
     </>
   )
 }

@@ -12,7 +12,7 @@ function Footer() {
             <div>
               <div className="flex items-center">
                 <Leaf className="h-8 w-8 text-green-500" />
-                <span className="ml-2 text-xl font-bold text-white">AgriSmart</span>
+                <span className="ml-2 text-xl font-bold text-white">CROPX</span>
               </div>
               <p className="mt-4 text-gray-400">Empowering farmers with smart technology for a better tomorrow.</p>
             </div>
@@ -36,7 +36,7 @@ function Footer() {
             <div>
               <h3 className="text-white font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>support@agrismart.com</li>
+                <li>support@CROPX.com</li>
                 <li>+91 1234567890</li>
                 <li>Delhi, India</li>
               </ul>
@@ -62,7 +62,7 @@ function Footer() {
             </div>
           </div>
           <div className="mt-8 border-t border-gray-800 pt-8">
-            <p className="text-center text-gray-400">&copy; 2025 AgriSmart. All rights reserved.</p>
+            <p className="text-center text-gray-400">&copy; 2025 CROPX. All rights reserved.</p>
           </div>
         </div>
       </footer>
