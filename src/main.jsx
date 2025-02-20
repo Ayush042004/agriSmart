@@ -27,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/Wheather" element={<Wheather/>}/>
       <Route path="/intelligence" element={<Map/>}/>
       <Route path="/MapMl" element={<MapML/>}/>
+      <Route path="/disease-detection" element={<FileUpload/>}/>
      
 
     </Route>

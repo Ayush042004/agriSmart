@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css'; // Required to load Leaflet styles
+import 'leaflet/dist/leaflet.css'; 
 import { useNavigate } from 'react-router-dom';
 
 const Map = () => {
@@ -26,7 +26,7 @@ const Map = () => {
   }, []);
 
   const Navigater = () => {
-    // Access coordinates from state
+    
     const { lat, lon } = coordinates;
 
     if (lat && lon) {
@@ -57,13 +57,13 @@ const Map = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-4 space-y-4">
-      {/* Map container */}
+     
       <div
         ref={mapRef}
         className="w-full sm:w-96 h-96 rounded-lg shadow-lg border border-gray-200"
       ></div>
 
-      {/* Coordinates display */}
+      
       <div className="p-4 bg-white shadow-md rounded-lg w-full sm:w-3/4 md:w-1/2">
         {coordinates.lat && coordinates.lon ? (
           <p className="text-lg font-semibold text-gray-700">
@@ -74,7 +74,7 @@ const Map = () => {
         )}
       </div>
 
-      {/* Submit Button */}
+      
       <button
         onClick={Navigater}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"

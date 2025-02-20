@@ -1,73 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { Sprout, Target } from 'lucide-react'
 import React from 'react'
-
-
-
-
-
 
 const team = [
   {
@@ -92,7 +24,7 @@ const team = [
     name: "Ayush Kumar",
     role: "Fullstack Developer",
     img: "https://a.storyblok.com/f/178900/960x540/6e6bcda041/demon-slayer.jpg/m/filters:quality(95)format(webp)",
-    desc: "Ayush is"
+    desc: "Ayush is a tech enthusiast with a strong passion for coding, particularly in web development. He enjoys building innovative projects."
   }
 ]
 

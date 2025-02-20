@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { X } from "lucide-react"
+import { useNavigate } from 'react-router-dom';
 
 const FileUpload = () => {
     const [file, setFile] = useState(null);
     const [prediction, setPrediction] = useState(null);
-    const [diseaseName, setDiseaseName] = useState(null);  // Store disease name
-    const [diseaseInfo, setDiseaseInfo] = useState(null);  // Store disease info
+    const [diseaseName, setDiseaseName] = useState(null);  
+    const [diseaseInfo, setDiseaseInfo] = useState(null);  
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -24,7 +27,7 @@ const FileUpload = () => {
         formData.append("file", file);
 
         setLoading(true);
-        setError(null); // Reset error state before submitting
+        setError(null); 
 
         try {
             const response = await axios.post('http://localhost:5000/predict', formData, {
@@ -33,7 +36,7 @@ const FileUpload = () => {
                 },
             });
             setPrediction(response.data.disease);
-            setDiseaseName(response.data.disease);  // Set disease name after prediction
+            setDiseaseName(response.data.disease);  
         } catch (err) {
             console.error('Error:', err);
             setError(err.response ? err.response.data.error : err.message);
@@ -64,9 +67,15 @@ const FileUpload = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <div className="bg-white shadow-lg rounded-lg p-6 w-96">
-                <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-green-200 to-blue-200 p-6 ">
+            <div className="relative bg-white shadow-2xl rounded-xl p-8 w-full max-w-lg  border border-gray-200">
+
+
+            <button onClick={() => navigate('/')} className="absolute top-3 right-3">
+                    <X className="h-6 w-6 text-gray-600 hover:text-red-600" />
+            </button>
+          
+                <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
                     Upload Image for Crop Disease Prediction
                 </h1>
 
@@ -74,12 +83,12 @@ const FileUpload = () => {
                     <input
                         type="file"
                         onChange={handleFileChange}
-                        className="border border-gray-300 p-2 rounded-md text-sm"
+                        className="border border-gray-300 p-3 rounded-md text-sm  focus:ring-2 focus:ring-green-500 focus:outline-none"
                     />
 
                     <button
                         type="submit"
-                        className="bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
+                        className="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 shadow-md disabled:opacity-50"
                         disabled={loading}
                     >
                         {loading ? 'Submitting...' : 'Submit'}
@@ -87,13 +96,13 @@ const FileUpload = () => {
                 </form>
 
                 {prediction && (
-                    <div className="mt-4 text-center">
-                        <p className="text-green-700 font-semibold">
+                    <div className="mt-6 text-center">
+                        <p className="text-green-700 font-semibold text-lg ">
                             Predicted Disease: {prediction}
                         </p>
                         <button
                             onClick={fetchDiseaseInfo}
-                            className="mt-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+                            className="mt-3 bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md"
                         >
                             More Information
                         </button>
@@ -101,14 +110,14 @@ const FileUpload = () => {
                 )}
 
                 {diseaseInfo && (
-                    <div className="mt-4 text-left bg-gray-100 p-4 rounded-lg">
-                        <h3 className="text-lg font-bold">Disease Information:</h3>
-                        <pre>{JSON.stringify(diseaseInfo, null, 2)}</pre>
+                    <div className="mt-6 text-left bg-gray-100 p-5 rounded-lg shadow-inner border border-gray-300">
+                        <h3 className="text-lg font-bold text-gray-800">Disease Information:</h3>
+                        <pre className='text-sm text-gray-700 whitespace-pre-wrap break-words'>{JSON.stringify(diseaseInfo, null, 2)}</pre>
                     </div>
                 )}
 
                 {error && (
-                    <p className="mt-4 text-red-600 text-center">
+                    <p className="mt-4 text-red-600 text-center font-semibold">
                         Error: {error}
                     </p>
                 )}

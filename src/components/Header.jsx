@@ -81,7 +81,7 @@ function Header() {
         <nav className='bg-white shadow-lg'>
           <div className='mx-auto px-4 max-w-7xl sm:px-6 lg:px-8'>
             <div className='flex justify-between h-16 items-center'>
-              {/* Logo */}
+            
               <div className='flex items-center'>
                 <Sprout className='h-8 w-8 text-green-600' />
                 <Link to="/" className='ml-2 text-xl poppins-bold text-gray-800'> CROPX </Link>
@@ -131,15 +131,15 @@ function Header() {
                           <button
                             key={"123"}
                             
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                            className="w-full  px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                           >
                             Weather Prediction
                           </button>
                           </Link>
                           <button
                             key={"221"}
-                            onClick={()=>setIsFileUploadModalOpen(true)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                            onClick={()=> navigate('/disease-detection')}
+                            className=" px-4 py-2 w-full text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                           >
                             DiseaseDetect
                           </button>
@@ -238,18 +238,8 @@ function Header() {
           )}
         </nav>
       </div>
-       {/* Modal for Disease Detection */}
-       {isFileUploadModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
-          <button onClick={() => setIsFileUploadModalOpen(true)} className="absolute top-2 right-2">
-              <X className="h-6 w-6 text-gray-600 hover:text-red-600" />
-            </button>
-            <FileUpload />
-          </div>
-        </div>
-      )}
-
+      
+       
 {/* Modal for Weather */}
 {isWheatherModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
