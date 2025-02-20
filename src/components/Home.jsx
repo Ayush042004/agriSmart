@@ -55,13 +55,9 @@ function Home() {
   const {t} = useTranslation();
 
     const testimonials = [
+      
         {
-          Name: "Sara kumar",
-          feedback: t('testimonial_1'),
-          location: "Bihar, India",
-        },
-        {
-          name: "Nonu Chaudhary ",
+          name: "Ansh  Choudhary ",
           feedback:  t('testimonial_2'),
           location: "Maharashtra, India",
         },
@@ -71,10 +67,15 @@ function Home() {
           location: "UP, India",
         },
         {
-          name: "Sankalp kumar ",
+          name: "Sankalp kumar",
           feedback: t('testimonial_4'),
           location: "Haryana, India",
         },
+        {
+          name: " Ayush kumar",
+          feedback: t('testimonial_1'),
+          location: " Bihar,India"
+        }
         
         
         
@@ -105,21 +106,21 @@ function Home() {
    
     {/* Hero Section */}
     <div className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center w-full px-6 ">
-    <AnimatedGradientText className="mb-12">ProductivityX100</AnimatedGradientText>
+    <AnimatedGradientText className="mb-12"> {t("Productivity")} </AnimatedGradientText>
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl poppins-extrabold text-gray-900 ">
-         <LineShadowText className="">Smart</LineShadowText> <span className="block poppins-extrabold"> Solutions for</span>
-          <span className="block text-green-600 poppins-extrabold">Indian Farmers</span>
+         <LineShadowText className="">{t("Smart")}</LineShadowText> <span className="block poppins-extrabold"> {t("Solutions")}</span>
+          <span className="block text-green-600 poppins-extrabold">{t("farmers")}</span>
         </h1>
         <p className="mt-4 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
-          Empowering farmers with AI-driven solutions for better crop management, market access, and financial security.
+          {t("empower_farmers")}
         </p>
         <div className="mt-6 flex flex-col sm:flex-row sm:justify-center gap-4">
           <button className="px-8 py-3 text-lg poppins-medium text-white bg-green-600 rounded-md hover:bg-green-700">
-            Get Started
+            {t("get_started")}
           </button>
           <button className="px-8 py-3 text-lg poppins-medium text-green-600 bg-green-100 rounded-md hover:bg-green-200">
-            Learn More
+            {t("learn_more")}
           </button>
         </div>
       </div>
@@ -138,7 +139,7 @@ function Home() {
    <div id="testimonials" className='py-12 bg-white'>
     <div className='max-w-7xl mx-auto px-4 lg:px-8 sm:px-6'>
         <h2 className='text-3xl poppins-extrabold text-center text-gray-900 sm:text-4xl'>
-         Trusted by Farmers Across India
+         {t("trusted_farmers")}
         </h2>
 
         <Marquee className="mt-8" pauseOnHover={true} reverse={false} repeat={2}>

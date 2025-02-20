@@ -26,8 +26,8 @@ function Header() {
   ];
   const menuItems = [
     
-    { name: "About", path: "/about" },
-    { name: "Marketplace", path: "/marketplace" },
+    { name: t("about"), path: "/about" },
+    { name: t("marketplace"), path: "/marketplace" },
     
   ];
 
@@ -133,7 +133,7 @@ function Header() {
                             
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                           >
-                            "Weather Prediction"
+                            Weather Prediction
                           </button>
                           </Link>
                           <button
@@ -141,7 +141,7 @@ function Header() {
                             onClick={()=>setIsFileUploadModalOpen(true)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                           >
-                            "DiseaseDetect"
+                            DiseaseDetect
                           </button>
                       </div>
                     </div>
