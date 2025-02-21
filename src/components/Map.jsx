@@ -18,7 +18,7 @@ const Map = () => {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
 
-    // Set up a click event on the map
+    
     map.on('click', (e) => {
       const { lat, lng } = e.latlng;
       setCoordinates({ lat, lon: lng });

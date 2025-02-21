@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, Sprout, X, Menu } from 'lucide-react';
 import { ShimmerButton } from './magicui/shimmer-button';
 import { useTranslation } from 'react-i18next';
-import FileUpload from "./DiseaseDetect.jsx";
+
 
 
 
@@ -58,9 +58,9 @@ function Header() {
     <>
       {/* Top Bar */}
       <div className="w-full py-1 bg-green-600">
-        <div className="flex items-center justify-end text-white mr-[200px]">
+        <div className="flex items-center justify-end text-white mr-[200px] sm:mr-16 md:mr-24 lg:mr-40">
           <ul>
-            <li className="poppins-semibold text-[13px]">
+            <li className="poppins-semibold text-[13px] px-2 ">
               <Link to="/help-centre">{t("help_center")}</Link>
             </li>
           </ul>
@@ -88,7 +88,7 @@ function Header() {
               </div>
 
               {/* Desktop Menu */}
-              <div className='hidden md:flex items-center space-x-8'>
+              <div className='hidden md:flex items-center space-x-6'>
 
   <button
     onClick={() => handleNavigation("features")}
@@ -180,7 +180,7 @@ function Header() {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className='md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3'>
+            <div className='md:hidden px-4 pt-2 pb-3 space-y-1 sm:px-3'>
               {menuItems.map((item) => (
                 <button
                   key={item.name}

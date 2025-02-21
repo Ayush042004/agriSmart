@@ -9,10 +9,10 @@ const InputForm = ({ setAlerts, data }) => {
   const [cropName, setCropName] = useState('');
   const [growthStage, setGrowthStage] = useState('');
 
-  // ✅ Populate state from the passed data prop
+  
   useEffect(() => {
     if (data && data.data) {
-      // Accessing values under `sg` for each property
+      
       if (data.data.airTemperature && data.data.airTemperature.sg !== undefined) {
         setTemperature(data.data.airTemperature.sg);
       }
@@ -47,12 +47,12 @@ const InputForm = ({ setAlerts, data }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/get_farming_alert', {
+      const response = await axios.post('http://localhost:5003/get_farming_alert', {
         weather: weatherData,
         crop_details: cropData
       });
 
-      setAlerts(response.data.alerts);  // Set the alerts in the parent component
+      setAlerts(response.data.alerts);  
     } catch (error) {
       console.error("Error fetching farming alerts:", error);
     }
