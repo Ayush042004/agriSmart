@@ -12,8 +12,7 @@ function MapML() {
     <div>
       {/* Render ML Data */}
       <h2>ML Model Predictions</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-
+      
       {/* Button to open Weather Modal */}
       <button onClick={() => setIsWeatherModalOpen(true)}>Check Weather</button>
 

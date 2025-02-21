@@ -47,7 +47,7 @@ function About() {
           alt="background"/>
         </div>
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center'>
-           <h1 className='text-4xl poppins-extrabold tracking-tight text-white sm:text-5xl md:text-6xl'>About AGRISMART</h1>
+           <h1 className='text-4xl poppins-extrabold tracking-tight text-white sm:text-5xl md:text-6xl'>About CROPX</h1>
            <p className='mt-6 max-w-3xl mx-auto text-xl text-green-100'>Transform Farming practises with knowledge and Technology.</p>
         </div>
       </div>
@@ -90,7 +90,7 @@ function About() {
 
 <div className='py-16 bg-gray-100'>
   <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-    <h2 className='text-3xl poppins-bold text-center text-gray-900'>Why Choose AgriSmart?</h2>
+    <h2 className='text-3xl poppins-bold text-center text-gray-900'>Why Choose CROPX?</h2>
     <p className='mt-4 max-w-3xl mx-auto text-lg text-center text-gray-600'>
       AgriSmart stands out because of our dedication to innovation, sustainability, and farmer empowerment.
     </p>

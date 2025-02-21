@@ -114,6 +114,7 @@ const FileUpload = () => {
                         <h3 className="text-lg font-bold text-gray-800">Disease Information:</h3>
                         <pre className='text-sm text-gray-700 whitespace-pre-wrap break-words'>{JSON.stringify(diseaseInfo, null, 2)}</pre>
                     </div>
+                   
                 )}
 
                 {error && (

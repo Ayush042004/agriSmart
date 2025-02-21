@@ -47,7 +47,7 @@ function SquishyCard()  {
         </p>
       </div>
 
-      {/* Feature Cards */}
+      
       <div className="mt-12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
         {features.map((item, index) => (
           <Card key={index} icon={item.icon} title={item.title} desc={item.desc} />
