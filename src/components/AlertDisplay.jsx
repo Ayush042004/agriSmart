@@ -1,22 +1,5 @@
 import React from 'react';
 
-// const AlertDisplay = ({ alerts }) => {
-//   return (
-//     <div>
-//       <h2>Farming Alerts</h2>
-//       {alerts && alerts.length > 0 ? (
-//         <ul>
-//           {alerts.map((alert, index) => (
-//             <li key={index}>{alert}</li>
-//           ))}
-//         </ul>
-//       ) : (
-//         <p>No alerts yet. Please enter weather and crop details to get alerts.</p>
-//       )}
-//     </div>
-//   );
-// };
-
 const AlertDisplay = ({ alerts }) => {
   if (Array.isArray(alerts)) {
     return (

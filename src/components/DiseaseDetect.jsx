@@ -10,10 +10,15 @@ const FileUpload = () => {
     const [diseaseInfo, setDiseaseInfo] = useState(null);  
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [preview, setPreview] = useState(null);
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]);
+        const settedFile = e.target.files[0];
+        if(settedFile){
+        setFile(settedFile);
+        setPreview(URL.createObjectURL(settedFile));
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -45,7 +50,7 @@ const FileUpload = () => {
         }
     };
 
-    const fetchDiseaseInfo = async () => {
+    const fetchDiseaseInfo = async (diseaseName) => {
         try {
             const response = await fetch('http://localhost:5001/get_disease_info', {
                 method: 'POST',
@@ -78,6 +83,11 @@ const FileUpload = () => {
                 <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
                     Upload Image for Crop Disease Prediction
                 </h1>
+                {preview && (
+                    <div className='mb-4'>
+                        <img src={preview} alt="Preview" className="w-full h-40 object-cover rounded-md shadow-md" />
+                    </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                     <input
@@ -93,6 +103,8 @@ const FileUpload = () => {
                     >
                         {loading ? 'Submitting...' : 'Submit'}
                     </button>
+
+                    {loading &&<p className="text-gray-500 text-center mt-2">🔄 Analyzing...</p>}
                 </form>
 
                 {prediction && (

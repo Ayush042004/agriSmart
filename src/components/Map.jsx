@@ -60,7 +60,7 @@ const Map = () => {
      
       <div
         ref={mapRef}
-        className="w-full sm:w-96 h-96 rounded-lg shadow-lg border border-gray-200"
+        className="w-full sm:w-96 h-96 rounded-lg s =hadow-lg border border-gray-200"
       ></div>
 
       
